@@ -2,18 +2,35 @@ import React, { Component } from "react";
 import { Navbar, Footer, Loading, PropertyCardView } from "../components";
 import { MyContext } from "../context";
 
-export default class Buy extends Component {
+export default class Rent extends Component {
   static contextType = MyContext;
-  render() {
-    const { rentList, loading } = this.context;
 
-    let rent = rentList.map(item => (
+  render() {
+    const {
+      filteredList,
+      loading,
+      getFilterOptions,
+      filterProperty,
+    } = this.context;
+
+    let rent = filteredList.map((item) => (
       <PropertyCardView key={item.id} property={item} />
     ));
 
+    let priceList = getFilterOptions(1, "price");
+    let propertyTypes = getFilterOptions(1, "propertyType");
+    let bedrooms = getFilterOptions(1, "bedrooms");
+
     return (
       <div className="web-page">
-        <Navbar />
+        <Navbar
+          tabIndex={0}
+          propertyTypes={propertyTypes}
+          bedrooms={bedrooms}
+          priceList={priceList}
+          onClick={(searchKeyword) => filterProperty(searchKeyword, 0)}
+          filters
+        />
         <section className="buy-section m-5">
           <div className="container text-center">
             <h5>Rental Properties &amp; Real Estate in Australia</h5>

@@ -106,23 +106,41 @@ class WebContext extends Component {
     } else if (type === "bedrooms") {
       optionsList = [{ id: 1, value: "Any" }, ...optionsList];
     } else if (type === "price") {
-      let maxPrice = Math.max(...optionsList.map((item) => item.value));
       optionsList = [];
-      if (isFinite(maxPrice)) {
-        let i = 50000,
+      if (tabIndex === 1) {
+        let i = 50,
           j = 2;
-        while (i <= maxPrice) {
+        while (i <= 5000) {
           optionsList = [...optionsList, { id: j, value: i }];
-          if (i < 500000) {
-            i += 25000;
-          } else if (i < 1000000) {
-            i += 50000;
-          } else if (i < 2000000) {
-            i += 100000;
+          if (i < 500) {
+            i += 25;
+          } else if (i < 1000) {
+            i += 50;
+          } else if (i < 2000) {
+            i += 100;
           } else {
-            i += 500000;
+            i += 500;
           }
           j++;
+        }
+      } else {
+        let maxPrice = Math.max(...optionsList.map((item) => item.value));
+        if (isFinite(maxPrice)) {
+          let i = 50000,
+            j = 2;
+          while (i <= maxPrice) {
+            optionsList = [...optionsList, { id: j, value: i }];
+            if (i < 500000) {
+              i += 25000;
+            } else if (i < 1000000) {
+              i += 50000;
+            } else if (i < 2000000) {
+              i += 100000;
+            } else {
+              i += 500000;
+            }
+            j++;
+          }
         }
       }
       optionsList = [{ id: 1, value: "Any" }, ...optionsList];
