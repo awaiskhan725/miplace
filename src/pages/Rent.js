@@ -24,11 +24,11 @@ export default class Rent extends Component {
     return (
       <div className="web-page">
         <Navbar
-          tabIndex={0}
+          tabIndex={1}
           propertyTypes={propertyTypes}
           bedrooms={bedrooms}
           priceList={priceList}
-          onClick={(searchKeyword) => filterProperty(searchKeyword, 0)}
+          onClick={(searchKeyword) => filterProperty(searchKeyword, 1)}
           filters
         />
         <section className="buy-section m-5">

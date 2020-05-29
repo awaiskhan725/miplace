@@ -13,7 +13,7 @@ const icons = [facebook, twitter, pinterestP, youtube, linkedin];
 
 const Footer = () => {
   return (
-    <footer className="py-5 px-0">
+    <footer className="py-5 px-0 overflow-hidden">
       <div className="container d-flex justify-content-between">
         <div className="d-flex">
           <Link to="/" className="footer-logo">

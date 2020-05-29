@@ -30,6 +30,8 @@ export default class Navbar extends Component {
       { id: 4, title: "news", path: "/news" },
     ];
 
+    console.log(menu[this.props.tabIndex].path);
+
     return (
       <div className="general-navbar shadow-sm">
         <div className="top-nav container d-flex justify-content-between py-4">

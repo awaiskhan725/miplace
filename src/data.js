@@ -6,13 +6,19 @@ import newsImg4 from "./images/news-image-4.jpg";
 import Agent1 from "./images/agent-1.jpg";
 import Agent2 from "./images/agent-2.jpg";
 import Agent3 from "./images/agent-3.jpg";
+import Agent4 from "./images/agent-4.jpg";
+import Agent5 from "./images/agent-5.jpg";
+import Agent6 from "./images/agent-6.jpg";
 
 import PropertyImage1 from "./images/property-image-1.jpg";
 import PropertyImage2 from "./images/property-image-2.png";
 import PropertyImage3 from "./images/property-image-3.jpg";
+import PropertyImage4 from "./images/property-image-4.jpg";
+import PropertyImage5 from "./images/property-image-5.jpg";
 
 import BedroomImage1 from "./images/bedroom-image-1.jpg";
 import BedroomImage2 from "./images/bedroom-image-2.jpg";
+import BedroomImage3 from "./images/bedroom-image-3.jpg";
 
 export default [
   {
@@ -254,31 +260,52 @@ export default [
       id: "8",
     },
     fields: {
-      heading: "$1,925,000",
-      slug: "property-buy-3",
-      type: "buy",
-      user: "Mark McRae",
+      heading: "$695 per week",
+      slug: "apartment-rent-38-22-newland-st",
+      type: "rent",
+      user: "Annie Moya",
+      userContact: "0412345678",
       postDate: "4th March 2020",
-      price: 1925000,
-      address: "103 Bendooley Street",
-      suburb: "Bowral",
+      price: 695,
+      address: "38/22",
+      suburb: "Bondi Junction",
       state: "NSW",
-      postCode: 2576,
-      bedrooms: 3,
-      bathroom: 2,
-      carPark: 2,
-      propertyType: "Townhouse",
+      postCode: 2022,
+      bedrooms: 1,
+      bathroom: 1,
+      carPark: 1,
+      propertyType: "Apartment",
+      description:
+        "Positioned on the sixth floor of the modern Eaton Place building in the heart of Bondi Junction, this large and bright one bedroom apartment boasts two balconies, a car space and north-west ideal aspect with oversized windows to allow flooding light. Situated in the heart of Bondi Junction with Cafe's, restaurants & Oxford Street Mall at your doorstep, and right by the Westfield shopping centre and public transport only a 3 min walk away!",
+      extra: [
+        "Level 6 with secure entry, lift access, undercover parking",
+        "Two large balconies",
+        "Bedroom with mirrored built ins and balcony off room",
+        "Large bathroom with shower",
+        "Renovated kitchen with gas cooking and dishwasher",
+        "Aircon",
+        "Parking",
+        "Internal laundry with facilities included",
+        "Small pet considered",
+      ],
       featured: false,
       images: [
         {
           fields: {
             file: {
-              url: PropertyImage3,
+              url: PropertyImage4,
+            },
+          },
+        },
+        {
+          fields: {
+            file: {
+              url: PropertyImage5,
             },
           },
         },
       ],
-      userPhoto: [{ fields: { file: { url: Agent3 } } }],
+      userPhoto: [{ fields: { file: { url: Agent6 } } }],
     },
   },
 ];

@@ -25,11 +25,6 @@ class WebContext extends Component {
     if (localStorage.getItem("context")) {
       let fetchedData = JSON.parse(localStorage.getItem("context"));
       this.setState({
-        buyList: fetchedData.buyList,
-        rentList: fetchedData.rentList,
-        soldList: fetchedData.soldList,
-        agentList: fetchedData.agentList,
-        newsList: fetchedData.newsList,
         filteredList: fetchedData.filteredList,
         featuredNews: fetchedData.featuredNews,
         propertyType: fetchedData.propertyType,
@@ -40,21 +35,23 @@ class WebContext extends Component {
         nearbySuburbs: fetchedData.nearbySuburbs,
         loading: false,
       });
-    } else {
-      let data = this.formatData(Data);
-      console.log(data);
-      let newsList = data.filter((item) => item.type === "news");
-      let featuredNews = newsList.filter((news) => news.featured === true);
-      let buyList = data.filter((item) => item.type === "buy");
-      // let bedroomsData = data.filter((item) => item.bedrooms);
-      // let maxBeds = [Math.max(...bedroomsData.map((item) => item.bedrooms))];
-      this.setState({
-        featuredNews,
-        newsList,
-        buyList,
-        loading: false,
-      });
     }
+    let data = this.formatData(Data);
+    console.log(data);
+    let newsList = data.filter((item) => item.type === "news");
+    let featuredNews = newsList.filter((news) => news.featured === true);
+    let buyList = data.filter((item) => item.type === "buy");
+    let rentList = data.filter((item) => item.type === "rent");
+    console.log(rentList);
+    // let bedroomsData = data.filter((item) => item.bedrooms);
+    // let maxBeds = [Math.max(...bedroomsData.map((item) => item.bedrooms))];
+    this.setState({
+      featuredNews,
+      newsList,
+      buyList,
+      rentList,
+      loading: false,
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {

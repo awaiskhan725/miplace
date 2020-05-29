@@ -20,7 +20,7 @@ export default class SoldPropertyPage extends Component {
 
     return (
       <div className="web-page">
-        <Navbar />
+        <Navbar tabIndex={2} />
         {!SoldProperty ? (
           <div className="container text-center">
             <h5 className="p-5">No Property Found</h5>

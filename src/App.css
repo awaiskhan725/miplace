@@ -85,24 +85,6 @@ h3 {
   margin-right: 10px;
 }
 
-.property-img {
-  height: 250px;
-  overflow: hidden;
-  position: relative;
-}
-
-.property-img img {
-  height: 110%;
-  width: auto;
-}
-
-.property-img .fav-icon {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  color: var(--primaryBG);
-}
-
 .featured-tag {
   background-color: var(--primaryColor);
   color: var(--primaryBG);
@@ -303,6 +285,7 @@ h3 {
 
 .homeNav {
   background-color: rgba(0, 0, 0, 0.4);
+  overflow-x: hidden;
 }
 
 .home-nav-bg {
@@ -443,6 +426,11 @@ h3 {
   text-align: center;
 }
 
+.news-list-view {
+  height: 250px;
+  overflow: hidden;
+}
+
 .news-list-view strong {
   color: var(--primaryColor);
   font-weight: 600;
@@ -466,7 +454,7 @@ h3 {
 
 .news-post-img img {
   width: 120%;
-  height: auto;
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;

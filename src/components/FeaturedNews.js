@@ -8,12 +8,12 @@ export default class FeaturedNews extends Component {
   render() {
     const { featuredNews, loading } = this.context;
 
-    let news = featuredNews.map(news => (
+    let news = featuredNews.map((news) => (
       <NewsListView key={news.id} news={news} />
     ));
 
     return (
-      <section className="featured-news m-5">
+      <section className="featured-news m-2">
         <div className="container">
           <h3>Latest property news</h3>
           {loading ? <Loading /> : <div className="row">{news}</div>}
