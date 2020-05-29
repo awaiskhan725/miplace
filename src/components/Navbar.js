@@ -89,7 +89,16 @@ export default class Navbar extends Component {
                     : "menu-link mx-3"
                 }
               >
-                {link.title}
+                <button
+                  className={`navbar-link-btn btn ${
+                    this.props.tabIndex === index && "navbar-link-btn-active"
+                  }`}
+                  onClick={() => {
+                    this.props.changeLink(index, this.state.searchKeyword);
+                  }}
+                >
+                  {link.title}
+                </button>
               </Link>
             ))}
           </div>
@@ -106,9 +115,8 @@ export default class Navbar extends Component {
                     id="search"
                     placeholder="Search by state, suburb or postcode"
                     className="col pl-1 py-4 pr-0"
-                    onChange={(e) =>
-                      this.setState({ searchKeyword: e.target.value })
-                    }
+                    value={this.props.search}
+                    onChange={(e) => this.props.searchKeyword(e.target.value)}
                   />
                 </div>
                 <div className="col-6 navbar navbar-expand-lg p-0">

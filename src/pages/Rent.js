@@ -9,8 +9,10 @@ export default class Rent extends Component {
     const {
       filteredList,
       loading,
+      search,
       getFilterOptions,
       filterProperty,
+      handleFilterChange,
     } = this.context;
 
     let rent = filteredList.map((item) => (
@@ -25,10 +27,17 @@ export default class Rent extends Component {
       <div className="web-page">
         <Navbar
           tabIndex={1}
+          search={search}
+          searchKeyword={(search) => handleFilterChange(search, "search")}
           propertyTypes={propertyTypes}
           bedrooms={bedrooms}
           priceList={priceList}
           onClick={(searchKeyword) => filterProperty(searchKeyword, 1)}
+          changeLink={(tabIndex, searchKeyword) => {
+            handleFilterChange([{ id: 1, value: "Any" }], "minPrice");
+            handleFilterChange([{ id: 1, value: "Any" }], "maxPrice");
+            filterProperty(searchKeyword, tabIndex);
+          }}
           filters
         />
         <section className="buy-section m-5">

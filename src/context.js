@@ -12,6 +12,7 @@ class WebContext extends Component {
     newsList: [],
     filteredList: [],
     featuredNews: [],
+    search: "",
     propertyType: ["all"],
     minBeds: ["Any"],
     maxBeds: ["Any"],
@@ -150,16 +151,21 @@ class WebContext extends Component {
   };
 
   handleFilterChange = (value, type) => {
-    let options = [...new Set(value.map((item) => item.value))];
-    this.setState({ [type]: options });
+    if (type === "search") {
+      this.setState({ [type]: value });
+    } else {
+      let options = [...new Set(value.map((item) => item.value))];
+      this.setState({ [type]: options });
+    }
   };
 
-  filterProperty = (search, tabIndex) => {
+  filterProperty = (tabIndex) => {
     let {
       buyList,
       rentList,
       soldList,
       agentList,
+      search,
       propertyType,
       minBeds,
       maxBeds,
@@ -167,6 +173,7 @@ class WebContext extends Component {
       maxPrice,
     } = this.state;
 
+    console.log(this.state);
     // preparing data to be filtered according to the tab
     let tempData;
     if (tabIndex === 0) {

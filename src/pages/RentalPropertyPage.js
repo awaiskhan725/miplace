@@ -23,13 +23,24 @@ export default class RentalPropertyPage extends Component {
   static contextType = MyContext;
 
   render() {
-    const { getRentalProperty } = this.context;
+    const {
+      getRentalProperty,
+      handleFilterChange,
+      filterProperty,
+    } = this.context;
     const RentalProperty = getRentalProperty(this.state.slug);
     console.log(RentalProperty);
 
     return (
       <div className="web-page">
-        <Navbar tabIndex={1} />
+        <Navbar
+          tabIndex={1}
+          changeLink={(tabIndex, searchKeyword) => {
+            handleFilterChange([{ id: 1, value: "Any" }], "minPrice");
+            handleFilterChange([{ id: 1, value: "Any" }], "maxPrice");
+            filterProperty(searchKeyword, tabIndex);
+          }}
+        />
         {!RentalProperty ? (
           <div className="container text-center">
             <h5 className="p-5">No Property Found</h5>

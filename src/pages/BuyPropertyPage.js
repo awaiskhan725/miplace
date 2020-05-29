@@ -23,13 +23,20 @@ export default class BuyPropertyPage extends Component {
   static contextType = MyContext;
 
   render() {
-    const { getBuyProperty } = this.context;
+    const { getBuyProperty, handleFilterChange, filterProperty } = this.context;
     const BuyProperty = getBuyProperty(this.state.slug);
     console.log(BuyProperty);
 
     return (
       <div className="web-page bg-white">
-        <Navbar tabIndex={0} />
+        <Navbar
+          tabIndex={0}
+          changeLink={(tabIndex, searchKeyword) => {
+            handleFilterChange([{ id: 1, value: "Any" }], "minPrice");
+            handleFilterChange([{ id: 1, value: "Any" }], "maxPrice");
+            filterProperty(searchKeyword, tabIndex);
+          }}
+        />
         {!BuyProperty ? (
           <div className="container text-center">
             <h5 className="p-5">No Property Found</h5>

@@ -37,6 +37,7 @@ h3 {
   font-weight: 600;
   text-transform: capitalize;
   color: var(--textPrimary);
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -547,6 +548,15 @@ footer {
 .navbar-logo img {
   height: 100%;
   width: auto;
+}
+
+.navbar-link-btn {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.navbar-link-btn-active {
+  color: var(--primaryColor);
 }
 
 .menu-btn {

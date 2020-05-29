@@ -14,6 +14,8 @@ const HomePageNav = ({
   tabIndex,
   tabs,
   tabChange,
+  search,
+  searchKeyword,
   propertyType,
   allPropertyTypes,
   bedrooms,
@@ -24,7 +26,7 @@ const HomePageNav = ({
   maxPrice,
   onSearch,
 }) => {
-  const [searchKeyword, setSearchKeyword] = useState("");
+  // const [searchKeyword, setSearchKeyword] = useState("");
   let history = useHistory();
   return (
     <HomeNavContainer image={tabs[tabIndex].background}>
@@ -102,8 +104,9 @@ const HomePageNav = ({
                       placeholder="Search by state, suburb or postcode"
                       className="pl-3 col-11"
                       autoFocus
+                      value={search}
                       onChange={(e) => {
-                        setSearchKeyword(e.target.value);
+                        searchKeyword(e.target.value);
                       }}
                     />
                   </div>

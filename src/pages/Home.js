@@ -144,6 +144,7 @@ export default class Home extends Component {
 
     const {
       loading,
+      search,
       handleFilterChange,
       filterProperty,
       getFilterOptions,
@@ -165,6 +166,8 @@ export default class Home extends Component {
           tabChange={(tabIndex) => {
             this.setState({ tabIndex });
           }}
+          search={search}
+          searchKeyword={(search) => handleFilterChange(search, "search")}
           propertyType={(propertyType) =>
             handleFilterChange(propertyType, "propertyType")
           }
@@ -175,7 +178,7 @@ export default class Home extends Component {
           price={priceList}
           minPrice={(minPrice) => handleFilterChange(minPrice, "minPrice")}
           maxPrice={(maxPrice) => handleFilterChange(maxPrice, "maxPrice")}
-          onSearch={(search) => filterProperty(search, this.state.tabIndex)}
+          onSearch={() => filterProperty(this.state.tabIndex)}
         />
         <HomePageServices tabIndex={this.state.tabIndex} services={services} />
         <FeaturedNews />
